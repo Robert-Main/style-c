@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+	<section>Scroll dowm</section>
+	<div class="container">
+		<div>
+			<img src="images/img1.jpg" alt="image" class="item">
+
+		</div>
+		<div>
+			<img src="images/g2.png" alt="image" class="item">
+			<img src="images/g3.png" alt="image" class="item">
+			<img src="images/g4.png" alt="image" class="item">
+			<img src="images/g5.png" alt="image" class="item">
+			<img src="images/g6.png" alt="image" class="item">
+			<img src="images/g7.png" alt="image" class="item">
+			<img src="images/g8.png" alt="image" class="item">
+			<img src="images/g9.png" alt="image" class="item">
+		</div>
+
+	</div>
+	<section>Scroll Up</section>
+
+	<script>
+		let options = {
+			threshold: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+		}
+		let callback = (entries, observer) => {
+			entries.forEach(entry => {
+				entry.target.style.scale = entry.intersectionRatio
+			});
+		}
+
+		let observer = new IntersectionObserver(callback, options);
+
+		for (const target of document.querySelectorAll('.item')) {
+			observer.observe(target)
+		}
+	</script>
+</body>
+
+</html>
